@@ -18,7 +18,7 @@
   become: true
 
 - name: add rpm key
-   rpm_key:
+  rpm_key:
     state: present
     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
 
