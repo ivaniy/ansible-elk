@@ -1,0 +1,21 @@
+--- 
+
+- name: create swapfile
+  command: fallocate -l 1G /swapfile
+  become: true
+
+- name: Fill swapfile by zeroes
+  command: dd if=/dev/zero of=/swapfile bs=1024 count=1048576
+  become: true
+
+- name: chmod swapfile
+  command: chmod 600 /swapfile
+  become: true
+
+- name: make swapfile as swap
+  command: mkswap /swapfile
+  become: true
+
+- name: turn on swapfile 
+  command: swapon /swapfile
+  become: true

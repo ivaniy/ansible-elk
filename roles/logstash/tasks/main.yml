@@ -1,0 +1,18 @@
+---
+#
+# Install/run logstash
+#
+
+- name: Copy logstash yum repo file
+  copy:
+    src=logstash.repo
+    dest=/etc/yum.repos.d/logstash.repo
+    owner=root
+    group=root
+    mode=0644
+  become: true
+
+- name: Install logstash 
+  yum:
+    name: logstash
+  become: true

@@ -1,0 +1,15 @@
+---
+#
+# Playbook to install the ELK 7.0 on Amazon Linux
+#  
+
+- hosts: elk
+  become: yes
+  remote_user: "{{ ansible_system_user }}"
+  vars_files:
+    - group_vars/all.yml
+  roles:
+    - { role: add_swap}
+    - { role: elasticsearch }
+    - { role: logstash }
+    - { role: kibana }
