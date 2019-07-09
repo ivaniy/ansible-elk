@@ -14,4 +14,4 @@
 - name: Install logstash 
   yum:
     name: logstash
-  lock_timeout: 180
+    lock_timeout: 180
