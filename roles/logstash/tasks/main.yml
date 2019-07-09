@@ -10,9 +10,7 @@
     owner=root
     group=root
     mode=0644
-  become: true
 
 - name: Install logstash 
   yum:
     name: logstash
-  become: true

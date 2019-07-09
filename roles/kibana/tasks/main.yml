@@ -10,28 +10,22 @@
     owner=root
     group=root
     mode=0644
-  become: true
 
 - name: Install kibana rpms
   yum:
     name: kibana
-  become: true
 
 - name: uncomment kibana  port
   command: sed -i '/server.port/s/^#//g' /etc/kibana/kibana.yml
-  become: true
 
 - name: uncomment kibana address
   command: sed -i '/server.host:/s/^#//g' /etc/kibana/kibana.yml
-  become: true
 
 - name: configure Kibana address
   command: sed -i 's/localhost/0.0.0.0/g' /etc/kibana/kibana.yml
-  become: true
 
 - name: Setup kibana service
   service: 
     name: kibana 
     state: started
     enabled: true
-  become: true

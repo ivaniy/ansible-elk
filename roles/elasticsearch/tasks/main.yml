@@ -6,7 +6,6 @@
 - name: Install JDK 8
   yum:
     name: java-1.8.0-openjdk
-  become: true
 
 - name: Copy elasticsearch yum repo file
   copy:
@@ -15,7 +14,6 @@
     owner=root
     group=root
     mode=0644
-  become: true
 
 - name: add rpm key
   rpm_key:
@@ -25,7 +23,6 @@
 - name: Install elasticsearch 
   yum:
     name: elasticsearch
-  become: true
 
 - name: Setup elasticsearch service to autostart
   service: 
