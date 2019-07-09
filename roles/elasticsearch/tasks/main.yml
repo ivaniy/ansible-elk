@@ -6,6 +6,7 @@
 - name: Install JDK 8
   yum:
     name: java-1.8.0-openjdk
+    lock_timeout: 180
 
 - name: Copy elasticsearch yum repo file
   copy:
@@ -23,6 +24,7 @@
 - name: Install elasticsearch 
   yum:
     name: elasticsearch
+    lock_timeout: 180
 
 - name: Setup elasticsearch service to autostart
   service: 
